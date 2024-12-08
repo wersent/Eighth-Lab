@@ -1,0 +1,12 @@
+Here is a text with palindromes:
+
+Madam, I'm Adam. A man, a plan, a canal, Panama! Was it a car or a cat I saw? Able was I ere I saw Elba. A Santa at NASA. Do geese see God? Mr. Owl ate my metal worm. Do nine men interpret? Never odd or even. Madam, in Eden, I'm Adam.
+
+This text contains several palindromes, which are phrases or sentences that read the same backward as forward. Some examples from the text include:
+
+ Madam, I'm Adam (reads the same forward and backward)
+ A man, a plan, a canal, Panama! (reads the same forward and backward)
+ Was it a car or a cat I saw? (reads the same forward and backward)
+ Able was I ere I saw Elba (reads the same forward and backward)
+
+Palindromes can be fun and interesting to play with, and they often require careful word choice and arrangement to create.
