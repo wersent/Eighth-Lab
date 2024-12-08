@@ -11,12 +11,12 @@ using std::cin;
 using std::swap;
 using std::endl;
                                
-std::string toLowerCase(const std::string& str) {
+std::string toLowerCase(const std::string& str) { // за идею спасибо Дане Рябчунову
     std::string low_str;
-    low_str.reserve(str.size()); // Предварительное выделение памяти
+    low_str.reserve(str.size()); // предварительное выделение памяти
 
     for (char ch : str) {
-        low_str += std::tolower(ch); // Преобразуем каждый символ в строчную букву
+        low_str += std::tolower(ch); // преобразуем каждый символ в строчную букву
     }
 
     return low_str;
@@ -84,14 +84,14 @@ bool isTextWithPalsCheck(std::vector<std::string> text){
             if (!isPal) count++;
         }
     }
-    if (count == text.size()) return false; // если слов, не являющиеся палиндромами, равно количеству слов, то текст не содержит палиндромов
+    if (count == text.size()) return false; // если количество слов, не являющиеся палиндромами, равно количеству слов, то текст не содержит палиндромов
     return true;
 }
-int consonantsCount(std::string word){
+int consonantsCount(std::string word){ // подсчёт согласных
     std::string consonants = "bcdfghjklmnpqrstvwxyz";
     int count = 0;
     for (int i = 0; i < word.length(); i++){
-        if (std::find(consonants.begin(), consonants.end(), word[i]) != consonants.end()) count++;
+        if (std::find(consonants.begin(), consonants.end(), word[i]) != consonants.end()) count++; // если буква согласная, увеличиваем счётчик
     }
     return count;
 }
@@ -173,11 +173,11 @@ void task3(){
     }
 
     std::vector<std::string> good_words; // вектор для слов, удовлетворяющих условию
-    std::vector<std::string> val_of_vowels;
+    std::vector<std::string> val_of_vowels; // вектор с гласными буквами для каждого слова
     for (int i = 0; i < words.size(); i++){
         const std::string vowels = "aeiouy"; // строка с гласными буквами
-        int count_vowels = 0; // счетчик гласных букв
-        std::string found_vowels;
+        int count_vowels = 0; // счетчик гласных букв в конкретном слове
+        std::string found_vowels; // строка с гласными в конкретном слове
         for (char symb : words[i]) {
             // если символ является гласной буквой и не дубликат, увеличиваем счетчик и прибавляем значение в строку с гласными
             if (vowels.find(symb) != std::string::npos && std::find(found_vowels.begin(), found_vowels.end(), symb) == found_vowels.end()) {
@@ -185,8 +185,8 @@ void task3(){
                 found_vowels += symb;
             }   
         }
-        words[i][0] = toupper(words[i][0]);
-        if (count_vowels > 3 && std::find(good_words.begin(), good_words.end(), words[i]) == good_words.end()){
+        words[i][0] = toupper(words[i][0]); // первеводим первую букву слова в верхний регистр
+        if (count_vowels > 3 && std::find(good_words.begin(), good_words.end(), words[i]) == good_words.end()){ // если слово удовлетворяет условию и не дубликат
             val_of_vowels.push_back(found_vowels);
             good_words.push_back(words[i]); // добавляем каждое слово в вектор
         }
@@ -194,7 +194,7 @@ void task3(){
 
     std::ofstream File2("output.txt"); // открыли выходной поток файла
     for (int i = 0; i < good_words.size(); i++){
-        File2 << good_words[i] << " (" << val_of_vowels[i] << ") " << endl; // записываем в файл
+        File2 << good_words[i] << " (" << val_of_vowels[i] << ") " << endl; // записываем в файл согласно условию
         std::cout << good_words[i] << " (" << val_of_vowels[i] << ") " << endl;
     }
 }
